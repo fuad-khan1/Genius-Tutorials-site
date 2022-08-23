@@ -3,8 +3,8 @@ import banner from '../../../images/banner.jpg'
 
 const Banner = () => {
     return (
-        <div>
-            <img src={banner} alt="" />
+        <div className='container'>
+            <img className='w-100' src={banner} alt="" />
         </div>
     );
 };

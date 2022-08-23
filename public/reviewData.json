@@ -1,0 +1,23 @@
+[
+    {
+      "id": "630542000600b60ab24fbd83",
+      "index": 0,
+      "image": "https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "name": "Wendi Garza",
+      "feedback": "That course was very helpfull for my career. I suggest you all to watch it."
+    },
+    {
+      "id": "63054200c96a81738191faa3",
+      "index": 1,
+      "image": "https://images.unsplash.com/photo-1500048993953-d23a436266cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "name": "Millicent Cortez",
+      "feedback": "As a beginner, it was very good tutorial for us, easy to learn."
+    },
+    {
+      "id": "63054200bd024a141ceb57c3",
+      "index": 2,
+      "image": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzh8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "name": "Louise Hancock",
+      "feedback": "I am really impressed to the c++ course. The teching method is very easy."
+    }
+  ]
