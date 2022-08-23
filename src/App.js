@@ -12,8 +12,6 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
-        <Route path='/banner' element={<Banner></Banner>}></Route>
-        <Route path='/services' element={<Services></Services>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
