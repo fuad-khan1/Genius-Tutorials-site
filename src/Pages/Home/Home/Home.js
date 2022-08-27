@@ -6,7 +6,7 @@ import Services from '../Services/Services';
 const Home = () => {
     return (
         <div>
-            <h1 className='text-primary my-5'>Fuad's Genius Tutorials</h1>
+            <h1 className='text-primary mt-5'>Fuad's Genius Tutorials</h1>
             <Banner></Banner>
             <Services></Services>
             <Reviews></Reviews>

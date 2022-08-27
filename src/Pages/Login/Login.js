@@ -2,48 +2,60 @@ import { useState } from "react";
 import {
   useAuthState,
   useCreateUserWithEmailAndPassword,
+  useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+
+import { ToastContainer, toast } from "react-toastify";
 import auth from "../../firebase.init";
 
 const Login = () => {
-  // const [login, setLogin] = useState(true);
-
   const [confirmError, setConfirmError] = useState("");
   let navigate = useNavigate();
   let location = useLocation();
   let from = location.state?.from?.pathname || "/";
-
-
+  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+  const [signInWithEmailAndPassword, user, loading, error] =
+  useSignInWithEmailAndPassword(auth);
   const [userInfo, setUserInfo] = useState({
     email: "",
     password: "",
     confirmPass: "",
   });
 
-  const [signInWithEmailAndPassword, user, loading, error] =
-    useSignInWithEmailAndPassword(auth);
-    if (user) {
-      navigate(from, { replace: true });
+  //******** Handle Input Field *************
+  const handleUserInfo = (event) => {
+    userInfo[event.target.name] = event.target.value;
+  };
+
+  if (user) {
+    navigate(from, { replace: true });
+  }
+  let Error;
+  if (error) {
+    Error = <p className="text-danger">{error?.message}</p>;
   }
 
   const [loginUser, loginloading, loginerror] = useAuthState(auth);
 
-  const handleFormInput = (event) => {
-    userInfo[event.target.name] = event.target.value;
-  };
-
+  //**** Handle Submit Button ************
   const handleLogin = (event) => {
     event.preventDefault();
-    signInWithEmailAndPassword(userInfo.email, userInfo.password);
-    
 
+    signInWithEmailAndPassword(userInfo.email, userInfo.password);
     console.log(userInfo);
   };
-
-  if (loginUser) {
-  }
+  // ************Handle Reset Password ***************
+  const resetPassword = async () => {
+    if (userInfo.email) {
+      await sendPasswordResetEmail(userInfo.email);
+      toast("Email Sent");
+    } else {
+      toast("Enter email address");
+    }
+  };
 
   return (
     <div className="container">
@@ -54,7 +66,7 @@ const Login = () => {
             Email address
           </label>
           <input
-            onBlur={(event) => handleFormInput(event)}
+            onBlur={(event) => handleUserInfo(event)}
             type="email"
             className="form-control py-3"
             name="email"
@@ -69,7 +81,7 @@ const Login = () => {
             Password
           </label>
           <input
-            onBlur={(event) => handleFormInput(event)}
+            onBlur={(event) => handleUserInfo(event)}
             type="password"
             name="password"
             className="form-control py-3"
@@ -79,16 +91,24 @@ const Login = () => {
           />
         </div>
 
-        <button  type="submit" className="btn btn-primary w-50 my-3">
+        <button type="submit" className="btn btn-primary w-50 my-3">
           Login
         </button>
         <p>
-          New to Here?<Link to="/register">Register</Link>
+          New to Here? <Link to="/register">Register</Link>
+        </p>
+        <p>
+          Forgot Password?
+          <button onClick={resetPassword} className="btn btn-link">
+            Reset Password
+          </button>
         </p>
         <p className="text-danger">{confirmError}</p>
 
         {user && <p className="text-success">User Login Successfully</p>}
       </form>
+      {Error}
+      <ToastContainer />
     </div>
   );
 };
