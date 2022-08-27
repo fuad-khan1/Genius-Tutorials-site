@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import auth from "../../../firebase.init";
 
 const Header = () => {
-  const { user } = useAuthState(auth);
+  const [user, setUser] = useAuthState(auth);
   console.log(user);
   const handleSignOut = () => {
     signOut(auth);
@@ -41,9 +41,9 @@ const Header = () => {
               <Nav.Link as={Link} to="/about">
                 About
               </Nav.Link>
-              {user ? (
-                <button onClick={handleSignOut}>Sign out</button>
-              ) : (
+              {user ? 
+                <button className="border-0 bg-primary text-white" onClick={handleSignOut}>Sign out</button>
+               : (
                 <Nav.Link eventKey={2} as={Link} to="/login">
                   Login
                 </Nav.Link>

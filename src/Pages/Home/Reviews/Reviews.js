@@ -11,7 +11,7 @@ const Reviews = () => {
     return (
         <div className="container">
       <h2 id='reviews' className="text-primary mt-5 mb-3 ">Reviews</h2>
-      <div className="row">
+      <div className="row mx-auto">
         {reviews.map((review) => (
           <Review key={review.id} review={review}></Review>
         ))}

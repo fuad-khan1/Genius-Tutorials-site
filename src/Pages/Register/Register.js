@@ -11,7 +11,7 @@ import google from "../../images/Social/google.png";
 
 const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth,{sendEmailVerification: true});
   const navigate = useNavigate();
 
   const [signInWithGoogle, googleUser, googleError] = useSignInWithGoogle(auth);
@@ -36,6 +36,7 @@ const Register = () => {
       return;
     } else {
       createUserWithEmailAndPassword(email, password);
+      navigate('/login')
       setConfirmError("");
     }
   };
@@ -53,6 +54,7 @@ const Register = () => {
     <div>
       <div className="container w-50">
         <h2 className="my-3 text-primary">Please Register</h2>
+        
         <Form onSubmit={handleRegister}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
@@ -90,7 +92,7 @@ const Register = () => {
           </Form.Group>
 
           <Button className="w-50 my-3" variant="primary" type="submit">
-            Submit
+            SignUp
           </Button>
           <p>
             Already registered?<Link to="/login">Login</Link>
@@ -98,12 +100,13 @@ const Register = () => {
           {error && <p className="text-danger">{error.message}</p>}
           {user ? <p className="text-success">User Created</p> : <p></p>}
         </Form>
+        </div>
         <button className="btn btn-primary " onClick={() => signInWithGoogle()}>
           <img style={{ width: "25px" }} src={google} alt="" />
           <small className="mx-2">Google</small>
         </button>
       </div>
-    </div>
+    
   );
 };
 
