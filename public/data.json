@@ -2,7 +2,7 @@
     {
       "id": "63052b83366cc42db2133842",
       "index": 0,
-      "price": "$0",
+      "price": "$99",
       "image": "https://content.techgig.com/photo/90325682.cms",
       "name": "C Programming Tutorial",
       "description": "C is a powerful general-purpose programming language. It can be used to develop software like operating systems, databases, compilers, and so on."
@@ -10,7 +10,7 @@
     {
       "id": "63052b836235479a82f4aa99",
       "index": 1,
-      "price": "$0",
+      "price": "$89",
       "image": "https://www.simplilearn.com/ice9/free_resources_article_thumb/What_is_CPP.jpg",
       "name": "C++ Tutorial",
       "description": "C++ is a popular programming language. C++ is used to create computer programs, and is one of the most used language in game development."
@@ -18,7 +18,7 @@
     {
       "id": "63052b83ce81d02c50ce5faf",
       "index": 2,
-      "price": "$0",
+      "price": "$120",
       "image": "https://1000logos.net/wp-content/uploads/2020/09/Java-Logo.png",
       "name": "Java Tutorial",
       "description": "Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible."
